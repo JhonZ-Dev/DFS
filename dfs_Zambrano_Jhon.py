@@ -85,3 +85,5 @@ class Grafo:  # Creamos una clase grafo, la cual tendra otras funciones dentro d
         # El método pop() elimina y retorna un elemento de una lista.
         camino.pop()
         return None
+if __name__ == "__main__":
+    #### METODO MAIN PARA LLAMAR A LA CLASE #####
