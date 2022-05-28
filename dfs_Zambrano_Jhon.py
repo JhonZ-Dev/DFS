@@ -47,3 +47,41 @@ class Grafo:  # Creamos una clase grafo, la cual tendra otras funciones dentro d
         del nodo actual han sido visitadas
         y ninguna de ellas conduce a nuestro nodo de destino.
         """    
+    def dfs(self, comienzo, objetivo, camino=[], nodo_visitado=set()):
+        """
+        Usaremos el método recursivo para implementar dfs de la implentación 
+        de la búsqueda.
+        Agregamos el nodo de inicio al comienzo de nuestra ruta transversal y 
+        lo marcamos como visited añadiéndolo a un conjunto de visitos de nodos.
+
+        Parametros:
+            comienzo (tipo): descripcion
+            comienzo (tipo): descripcion
+            path (lista, opcional): Por defecto se guardará en una lista[]
+            nodo_visitado (tipo, opcional): descripcion: en esta parte se setea
+
+        Retorna:
+            none 
+        """
+        camino.append(
+            comienzo)  # Append() Este método nos permite agregar nuevos elementos a una lista.
+        nodo_visitado.add(comienzo)  # nodo visitado se agrega al comienzo
+        if comienzo == objetivo:  # Si el comienzo es igual al objetivo
+            return camino  # retorna el camino
+
+        # for bucle, significa que todas las ramas vecinas del
+        for (nodos_no_visitados, weight) in self.m_lista_adyacencia[comienzo]:
+            # nodo actual y
+            # ninguna de ellas conduce a nuestro nodo de destino
+
+            if nodos_no_visitados not in nodo_visitado:  # Si los nodos no visitados.
+                # El operador not devuelve el valor opuesto la valor booleano.
+                # el resultado será =
+                resultado = self.dfs(nodos_no_visitados,
+                                     objetivo, camino, nodo_visitado)
+                # al metodo self y como parametro se envia a los nodos no visitado, objetivo, camino y nodo visitado.
+                if resultado is not None:  # si el resultado no tiene una falta de valor, esto objeto no tiene métodos
+                    return resultado  # retorna el resultado
+        # El método pop() elimina y retorna un elemento de una lista.
+        camino.pop()
+        return None
