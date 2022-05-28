@@ -87,3 +87,23 @@ class Grafo:  # Creamos una clase grafo, la cual tendra otras funciones dentro d
         return None
 if __name__ == "__main__":
     #### METODO MAIN PARA LLAMAR A LA CLASE #####
+    
+    '''
+    Lo primero que tenemos que hacer es crear una instancia de la Graph clase.
+    Nuestro gráfico de ejemplo es no dirigido y tiene 5 nodos, 
+    por lo que crearemos su representación de la siguiente manera:
+    '''
+    grafoUltimo = Grafo(5, nodo_dirigido=False)  # Instancia a la clase graph
+
+    # A continuación, debemos agregar todos los bordes del gráfico
+    grafoUltimo.agregar_borde(0, 1)
+    grafoUltimo.agregar_borde(0, 2)
+    grafoUltimo.agregar_borde(1, 3)
+    grafoUltimo.agregar_borde(2, 3)
+    grafoUltimo.agregar_borde(3, 4)
+    # Echemos un vistazo a cómo almacena internamente la clase nuestro gráfico de ejemplo.
+    grafoUltimo.print_lista_adyacente()  # Printamos a la lista de adyacencia.
+
+    camino_transversal = [] #Guardamos el camino transversal en una lista
+    camino_transversal = grafoUltimo.dfs(0, 3) #encontrar una ruta desde el nodo 0 al nodo 3
+    print(" El camino transversal del nodo 0 al nodo 3 es{camino_transversal}") #Mostramos por pantalla el camino transversal del nodo
