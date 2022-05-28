@@ -32,3 +32,18 @@ class Grafo:  # Creamos una clase grafo, la cual tendra otras funciones dentro d
         # Se crea una lista de adyacencia #Se crea un diccionario con cada nodo del gráfico configurado para ser una clave
         # En es parte optimizamos el códgo implementado un for
         self.m_lista_adyacencia = {nodo: set() for nodo in self.m_nodos}
+
+
+    def print_lista_adyacente(self):
+        """
+        Una lista de adyacencia es un tipo de representación gráfica en código, consiste en llaves que representan cada nodo, y un colocar de valores
+        para cada uno de ellos que contienen nodos que están conectados al nodo clave con un 
+        borde.
+        """
+        for key in self.m_lista_adyacencia.keys():
+            print("nodo:    ", key, ": ", self.m_lista_adyacencia[key])
+        """
+        si nos encontramos fuera de la for bucle, significa que todas las ramas vecinas
+        del nodo actual han sido visitadas
+        y ninguna de ellas conduce a nuestro nodo de destino.
+        """    
