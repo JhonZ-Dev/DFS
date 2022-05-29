@@ -32,6 +32,13 @@ class Grafo:  # Creamos una clase grafo, la cual tendra otras funciones dentro d
         # Se crea una lista de adyacencia #Se crea un diccionario con cada nodo del gráfico configurado para ser una clave
         # En es parte optimizamos el códgo implementado un for
         self.m_lista_adyacencia = {nodo: set() for nodo in self.m_nodos}
+        	
+    # Add edge to the graph
+    def agregar_borde(self, nodo1, nodo2, peso_nodo=1):
+        self.m_lista_adyacencia[nodo1].add((nodo2, peso_nodo))
+
+        if not self.m_nodo_dirigido:
+            self.m_lista_adyacencia[nodo2].add((nodo1, peso_nodo))
 
 
     def print_lista_adyacente(self):
@@ -106,4 +113,5 @@ if __name__ == "__main__":
 
     camino_transversal = [] #Guardamos el camino transversal en una lista
     camino_transversal = grafoUltimo.dfs(0, 3) #encontrar una ruta desde el nodo 0 al nodo 3
-    print(" El camino transversal del nodo 0 al nodo 3 es{camino_transversal}") #Mostramos por pantalla el camino transversal del nodo
+    print(" El camino transversal del nodo 0 al nodo 3 es ")
+    print(camino_transversal)
